@@ -24,11 +24,19 @@ val BtnInchToCm=findViewById<Button>(R.id.BtnInchtoCm)
 val BtnCmToInch=findViewById<Button>(R.id.BtnCmtoInch)
 val TxtOutput=findViewById<TextView>(R.id.Txtoutput)
  BtnInchToCm.setOnClickListener {
-     var ans:Double=  TxtInput.text.toString().toDouble()*2.54
-  TxtOutput.setText(ans.toString()+" cm")
+     var ans: Double = try {
+     TxtInput.text.toString().toDouble() * 2.54
+ } catch (e: Exception) {
+     0.0
+ }
+     TxtOutput.setText(ans.toString()+" cm")
  }
 BtnCmToInch.setOnClickListener {  // printf("%.2f",ans)
-    TxtOutput.setText ("%.2f".format(TxtInput.text.toString().toDouble()/2.54)+
-    " inch")  }
+    try {
+        TxtOutput.setText ("%.2f".format(TxtInput.text.toString().toDouble()/2.54)+ " inch")
+    } catch (e: Exception) {
+        TxtOutput.setText("0")
+    }
+}
     }
 }
