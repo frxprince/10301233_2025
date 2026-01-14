@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val BtnCalculate=findViewById<Button>(R.id.BtnCalculate)
         val TxtOutput=findViewById<TextView>(R.id.txtOutput)
    BtnCalculate.setOnClickListener {
-   TxtOutput.setText("%.3f".format(if(RcmToinch.isChecked) TxtInput.text.toString().toDouble()/2.54
+   TxtOutput.setText(resources.getString(R.string.message) + "%.3f ".format(if(RcmToinch.isChecked) TxtInput.text.toString().toDouble()/2.54
    else  TxtInput.text.toString().toDouble()*2.54))
    }
 

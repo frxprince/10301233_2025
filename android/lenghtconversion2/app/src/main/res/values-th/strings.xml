@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">โปรแกรมแปลงหน่วยความยาว</string>
+    <string name="inchTocm">นิ้วเป็นเซ็นติเมตร</string>
+    <string name="cmToInch">เซ็นติเมตรเป็นนิ้ว</string>
+    <string name="calculation">คำนวณ</string>
+    <string name="message">คำตอบคือ </string>
+</resources>
