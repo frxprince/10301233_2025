@@ -19,8 +19,9 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="314dp"
-        android:layout_height="101dp"
+        android:layout_width="563dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/BtnCalculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +29,7 @@
 
         <RadioButton
             android:id="@+id/radioInchToCm"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/inchTocm" />
@@ -47,19 +48,17 @@
         android:layout_height="wrap_content"
         android:text="@string/calculation"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtOutput"
-        android:layout_width="209dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="362dp"
+        android:layout_height="56dp"
         android:text="TextView"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtnCalculate" />
+        app:layout_constraintStart_toEndOf="@+id/BtnCalculate"
+        app:layout_constraintTop_toTopOf="@+id/BtnCalculate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
