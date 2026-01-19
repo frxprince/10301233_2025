@@ -3,6 +3,7 @@ package com.example.ieccalculator
 import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -45,6 +46,23 @@ class MainActivity : AppCompatActivity() {
 BtnInputUnit.setOnClickListener { val i= Intent(this, InputPrefiix::class.java)
  InputRes.launch(i)
 }
+
+val OutputRes=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+    result: ActivityResult->
+     if(result.resultCode==RESULT_OK){
+   var ans=when(result.data!!.getStringExtra("prefix")){
+    "kiB"-> (BaseValue/Math.pow(2.0,10.0)).toString()+" kiB"
+    "MiB"-> (BaseValue/Math.pow(2.0,20.0)).toString()+" MiB"
+    "GiB"-> (BaseValue/Math.pow(2.0,30.0)).toString()+" GiB"
+    "TiB"-> (BaseValue/Math.pow(2.0,40.0)).toString()+" TiB"
+    else->"no data"
+   }
+   Log.v("the answer is ",ans.toString())
+     }
+}
+BtnOutputUnit.setOnClickListener { val i=Intent(this,TargetPrefix::class.java)
+OutputRes.launch(i)}
+
 
 
     }
