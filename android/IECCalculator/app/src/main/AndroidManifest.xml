@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IECCalculator">
         <activity
+            android:name=".ShowResult"
+            android:exported="false" />
+        <activity
             android:name=".TargetPrefix"
             android:exported="false" />
         <activity

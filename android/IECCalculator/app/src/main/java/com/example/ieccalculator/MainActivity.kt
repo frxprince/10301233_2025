@@ -58,6 +58,10 @@ val OutputRes=registerForActivityResult(ActivityResultContracts.StartActivityFor
     else->"no data"
    }
    Log.v("the answer is ",ans.toString())
+  val i=Intent(this, ShowResult::class.java)
+  i.putExtra("result",ans.toString()+" "
+          +result.data!!.getStringExtra("prefix"))
+  startActivity(i)
      }
 }
 BtnOutputUnit.setOnClickListener { val i=Intent(this,TargetPrefix::class.java)
