@@ -1,5 +1,6 @@
 package com.example.ieccalculator
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -8,9 +9,29 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class InputPrefiix : AppCompatActivity() {
+    override fun finish() {
+        super.finish()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                OVERRIDE_TRANSITION_OPEN,
+                R.anim.fade_in, R.anim.fade_out
+            )
+        }else{
+            overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                OVERRIDE_TRANSITION_OPEN,
+                R.anim.fade_in, R.anim.fade_out
+            )
+        }else{
+            overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
+        }
         setContentView(R.layout.activity_input_prefiix)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

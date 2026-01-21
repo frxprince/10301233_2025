@@ -2,6 +2,7 @@ package com.example.ieccalculator
 
 import android.content.Intent
 import android.icu.text.DecimalFormat
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -18,6 +19,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                OVERRIDE_TRANSITION_OPEN,
+                R.anim.fade_in, R.anim.fade_out
+            )
+        }else{
+         overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
+        }
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -59,8 +68,7 @@ val OutputRes=registerForActivityResult(ActivityResultContracts.StartActivityFor
    }
    Log.v("the answer is ",ans.toString())
   val i=Intent(this, ShowResult::class.java)
-  i.putExtra("result",ans.toString()+" "
-          +result.data!!.getStringExtra("prefix"))
+  i.putExtra("result",ans.toString())
   startActivity(i)
      }
 }

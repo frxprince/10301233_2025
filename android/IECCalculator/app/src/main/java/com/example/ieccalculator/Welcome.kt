@@ -2,11 +2,13 @@ package com.example.ieccalculator
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
 
 class Welcome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,5 +25,6 @@ BtnNext.setOnClickListener {
 val i= Intent(this, MainActivity::class.java)
 startActivity(i)
 }
+ BtnNext.startAnimation(AnimationUtils.loadAnimation(this,R.anim.blink)  )
     }
 }
