@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/BtnWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:text="Web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BtnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="5dp"
+        android:text="Map"
+        app:layout_constraintEnd_toEndOf="@+id/BtnWeb"
+        app:layout_constraintTop_toBottomOf="@+id/BtnWeb" />
+
+    <Button
+        android:id="@+id/BtnAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Alarm"
+        app:layout_constraintStart_toStartOf="@+id/BtnMap"
+        app:layout_constraintTop_toBottomOf="@+id/BtnMap" />
+
+    <Button
+        android:id="@+id/Btnphonebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:text="Phonebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnAlarm" />
+
+    <Button
+        android:id="@+id/BtnCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="40dp"
+        android:text="Camera"
+        app:layout_constraintStart_toStartOf="@+id/Btnphonebook"
+        app:layout_constraintTop_toBottomOf="@+id/Btnphonebook" />
+</androidx.constraintlayout.widget.ConstraintLayout>
