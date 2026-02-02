@@ -3,16 +3,24 @@ package com.example.mylauncher
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat.enableEdgeToEdge
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
+    lateinit var Txt1: TextView
+    lateinit var Txt2: TextView
+    lateinit var Listview1:ListView
+    lateinit var  Btn: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,10 +30,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-    val Listview1=findViewById<ListView>(R.id.listview1)
-    val Txt1=findViewById<TextView>(R.id.Text1)
-    val Txt2=findViewById<TextView>(R.id.Text2)
-    val Btn=findViewById<Button>(R.id.Btn)
+    Listview1=findViewById(R.id.listview1)
+    Txt1=findViewById(R.id.Text1)
+     Txt2=findViewById(R.id.Text2)
+     Btn=findViewById(R.id.Btn)
     var displayList=mutableListOf<String>()
     var package_list=packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
       for(item in package_list){
@@ -35,5 +43,18 @@ class MainActivity : AppCompatActivity() {
   val adapter= ArrayAdapter(this,R.layout.activity_listview_item,
       displayList.toTypedArray())
   Listview1.adapter=adapter
+   Listview1.onItemClickListener=this
+
+
+  }
+
+    override fun onItemClick(
+        parent: AdapterView<*>?,
+        view: View?,
+        position: Int,
+        id: Long
+    ) {
+        Txt1.text= Listview1.getItemAtPosition(position).toString()
     }
+
 }
