@@ -44,7 +44,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
       displayList.toTypedArray())
   Listview1.adapter=adapter
    Listview1.onItemClickListener=this
-
+Btn.setOnClickListener {
+  startActivity(packageManager.getLaunchIntentForPackage(Txt1.text.toString()))
+}
 
   }
 
@@ -55,6 +57,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         id: Long
     ) {
         Txt1.text= Listview1.getItemAtPosition(position).toString()
+   if (packageManager.getLaunchIntentForPackage(Txt1.text.toString()) !=null)
+   {
+      Btn.isEnabled=true
+   Txt2.text=packageManager.getLaunchIntentForPackage(Txt1.text.toString()).toString()
+   }else{
+       Btn.isEnabled=false
+       Txt2.text=""
+
+   }
     }
 
 }
