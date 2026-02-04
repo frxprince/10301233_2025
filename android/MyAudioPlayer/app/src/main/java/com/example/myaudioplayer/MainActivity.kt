@@ -1,5 +1,6 @@
 package com.example.myaudioplayer
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +25,23 @@ class MainActivity : AppCompatActivity() {
    val BtnPlay=findViewById<Button>(R.id.BtnPlay)
    val BtnPause=findViewById<Button>(R.id.BtnPause)
    val BtnStop=findViewById<Button>(R.id.BtnStop)
-        
+lateinit var MP: MediaPlayer
+   BtnLoadResource.setOnClickListener {
+
+     MP= MediaPlayer.create(this,R.raw.greeting)
+   }
+   BtnLoadAssets.setOnClickListener {
+    var afile=assets.openFd("audio/mp3/tada.mp3")
+   MP= MediaPlayer()
+   MP.setDataSource(afile.fileDescriptor,afile.startOffset,afile.length )
+   MP.prepare()
+   }
+   BtnLoadInternet.setOnClickListener {
+       
+   }
+
+   BtnPlay.setOnClickListener { MP.start() }
+   BtnStop.setOnClickListener { MP.stop() }
+
     }
 }
