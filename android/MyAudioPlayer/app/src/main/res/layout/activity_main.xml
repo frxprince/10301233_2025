@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/BtnResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="Load Resource"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BtnAssets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="7dp"
+        android:text="Load Assets"
+        app:layout_constraintEnd_toEndOf="@+id/BtnResource"
+        app:layout_constraintTop_toBottomOf="@+id/BtnResource" />
+
+    <Button
+        android:id="@+id/BtnInternet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="22dp"
+        android:text="Load Internet"
+        app:layout_constraintStart_toStartOf="@+id/BtnAssets"
+        app:layout_constraintTop_toBottomOf="@+id/BtnAssets" />
+
+    <Button
+        android:id="@+id/BtnSDCARD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="Load SDCARD"
+        app:layout_constraintStart_toStartOf="@+id/BtnInternet"
+        app:layout_constraintTop_toBottomOf="@+id/BtnInternet" />
+
+    <Button
+        android:id="@+id/BtnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="3dp"
+        android:text="Play"
+        app:layout_constraintBaseline_toBaselineOf="@+id/BtnPause"
+        app:layout_constraintEnd_toStartOf="@+id/BtnPause"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BtnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="Pause"
+        app:layout_constraintEnd_toStartOf="@+id/BtnStop"
+        app:layout_constraintStart_toEndOf="@+id/BtnPlay"
+        app:layout_constraintTop_toBottomOf="@+id/BtnSDCARD" />
+
+    <Button
+        android:id="@+id/BtnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="19dp"
+        android:text="Stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BtnPause"
+        app:layout_constraintTop_toBottomOf="@+id/BtnSDCARD" />
+</androidx.constraintlayout.widget.ConstraintLayout>
