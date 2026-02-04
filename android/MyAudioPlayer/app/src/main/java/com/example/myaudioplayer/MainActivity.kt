@@ -1,6 +1,7 @@
 package com.example.myaudioplayer
 
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -37,7 +38,10 @@ lateinit var MP: MediaPlayer
    MP.prepare()
    }
    BtnLoadInternet.setOnClickListener {
-       
+      //     https://www.drpaween.com/ohm/mp3test.mp3
+    MP= MediaPlayer()
+    MP.setDataSource(this,Uri.parse("http://www.drpaween.com/ohm/mp3test.mp3"))
+    MP.prepare()
    }
 
    BtnPlay.setOnClickListener { MP.start() }
