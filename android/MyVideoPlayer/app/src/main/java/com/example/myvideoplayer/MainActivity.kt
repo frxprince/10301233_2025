@@ -2,6 +2,7 @@ package com.example.myvideoplayer
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.MediaController
 import android.widget.VideoView
@@ -37,6 +38,10 @@ btnPlay.setOnClickListener { videoView.start() }
  btnLoadInternet.setOnClickListener {
      videoView.setVideoURI(
          Uri.parse("http://www.drpaween.com/ohm/cs436/mv.mp4"))
+ }
+ btnLoadSDCARD.setOnClickListener {
+     videoView.setVideoURI(Uri.parse(Environment.getExternalStorageDirectory().path+
+     "/DCIM/Loituma.3gp"))
  }
     }
 }
