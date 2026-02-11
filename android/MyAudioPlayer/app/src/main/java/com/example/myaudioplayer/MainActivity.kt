@@ -1,11 +1,15 @@
 package com.example.myaudioplayer
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -43,7 +47,27 @@ lateinit var MP: MediaPlayer
     MP.setDataSource(this,Uri.parse("http://www.drpaween.com/ohm/mp3test.mp3"))
     MP.prepare()
    }
+if(ActivityCompat.checkSelfPermission(this,
+        Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+    ActivityCompat.requestPermissions(this,
+        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1234)
+}
+        if(ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),1234)
+        }
+        if(ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.READ_MEDIA_AUDIO),1234)
+        }
 
+BtnLoadSDCARD.setOnClickListener {
+    MP= MediaPlayer()
+  MP.setDataSource(Environment.getExternalStorageDirectory().path  +"/Music/song.mp3")
+  MP.prepare()
+}
    BtnPlay.setOnClickListener { MP.start() }
    BtnStop.setOnClickListener { MP.stop() }
 
